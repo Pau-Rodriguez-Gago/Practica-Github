@@ -23,3 +23,5 @@ resultado=int(var4)+int(var5)
 print("la suma de las variables 1 y 2 tiene el valor",resultado)
 var6 = float(input("Enter a decimal number: "))
 #float es para poner decimales
+
+#este comentario es pra ver si se guarda el historial de versiones en github

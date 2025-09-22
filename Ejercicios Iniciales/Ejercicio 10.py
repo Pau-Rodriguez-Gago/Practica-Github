@@ -4,9 +4,9 @@ num2= int(input("Introduce el segundo número (divisor): "))
 cociente= num1 // num2
 resto= num1 % num2
 if num1 % 2 == 0:
- paridad= "par"
+ par_o_impar= "par"
 else:
- paridad= "impar"
+ par_o_impar= "impar"
 print("El cociente es: ",cociente)
 print("El resto es: ",resto)
-print("El dividendo es un número ",paridad)
+print("El dividendo es un número",par_o_impar)

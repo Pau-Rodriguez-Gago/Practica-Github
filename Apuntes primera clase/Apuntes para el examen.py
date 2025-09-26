@@ -18,12 +18,17 @@ cociente= num1 // num2
 resto= num1 % num2
 #para redondear un número se usa round(variable, número de decimales)
 resto_2decimales= round(resto, 2)
+
+#CONDICIONALES
 #El if es para hacer una condición, si se cumple lo que hay después del if se ejecuta lo que hay debajo, si no se cumple no se ejecuta
 if num1 > num2:
  print("El primer número es mayor que el segundo")
- #El else es para hacer una condición contraria al if, si no se cumple lo que hay después del if se ejecuta lo que hay debajo del else
-else:
- print("El segundo número es mayor que el primero")
+  #EL elif es para hacer una condición intermedia entre el if y el else, si se cumple lo que hay después del elif se ejecuta lo que hay debajo de si mismo
+elif num1 == num2:
+#El else es para hacer una condición contraria al if, si no se cumple lo que hay después del if se ejecuta lo que hay debajo del else
+#else:
+  print("El segundo número es mayor que el primero")
+#Math
  #Importar el math nos perimite usar la función math.pi para el valor de π y la raíz cuadrada con math.sqrt()
 import math
 raiz_cuadrada_num1= math.sqrt(num1)

@@ -28,8 +28,24 @@ elif num1 == num2:
 #El else es para hacer una condición contraria al if, si no se cumple lo que hay después del if se ejecuta lo que hay debajo del else
 #else:
   print("El segundo número es mayor que el primero")
+  #para que esté dentro del if, elif o else hay que ponerle una sangría (tabulador o 4 espacios)
 #Math
  #Importar el math nos perimite usar la función math.pi para el valor de π y la raíz cuadrada con math.sqrt()
 import math
 raiz_cuadrada_num1= math.sqrt(num1)
 raiz_cuadrada_num2= math.sqrt(num2)
+#Con el if, los operadores son: > < >= <= == !=
+#El == es para comparar si dos valores son iguales
+#El != es para comparar si dos valores son diferentes
+
+#los operadres lógicos son: and, or, not
+#El and es para que se cumplan dos condiciones a la vez
+#El or es para que se cumpla una de las dos condiciones
+#El not es para que no se cumpla una condición
+#Por ejemplo:
+if num1 > 0 and num2 > 0:
+    print("Los dos números son positivos")
+if num1 > 0 or num2 > 0:
+    print("Al menos uno de los dos números es positivo")
+if not num1 > 0:
+    print("El primer número no es positivo")

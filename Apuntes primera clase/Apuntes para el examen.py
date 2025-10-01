@@ -49,3 +49,11 @@ if num1 > 0 or num2 > 0:
     print("Al menos uno de los dos números es positivo")
 if not num1 > 0:
     print("El primer número no es positivo")
+
+#El .isuper() es para saber si una letra es mayúscula
+#Y el .islower() es para saber si una letra es minúscula
+#El .isnumeric() es para saber si lo introducido es un número
+#El .isalpha() es para saber si lo introducido es una letra
+#El .isalnum() es para saber si lo introducido es una letra o un número
+#El .isspace() es para saber si lo introducido es un espacio
+#El .istitle() es para saber si lo introducido es una frase con la primera letra en mayúscula

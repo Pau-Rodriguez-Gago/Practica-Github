@@ -57,3 +57,10 @@ if not num1 > 0:
 #El .isalnum() es para saber si lo introducido es una letra o un número
 #El .isspace() es para saber si lo introducido es un espacio
 #El .istitle() es para saber si lo introducido es una frase con la primera letra en mayúscula
+
+#Con len, se puede saber la longitud de una cadena de texto (string)
+#Por ejemplo:
+frase= input("Introduce una frase: ")
+print("La longitud de la frase es de",len(frase),"caracteres")
+
+#para quitar el tabulado en muchas líneas de código a la vez, se selecciona todo el código y se pulsa shift+tab

@@ -41,3 +41,61 @@ Y ha sido creado el 12/09/2025 por mí, Pau Rodríguez Gago
      importantes descuentos. A los adultos se les aplicará un 10% de descuento y a los menores
      de 18 años un 50%. Si la entrada cuesta 12 euros, calcula el total a pagar introduciendo por
      teclado el número de menores y el número de adultos que asisten al cine.
+
+     Ejercicios con con condicionales:
+     #19. Programa que introduzca dos números y devuelva cuál de los dos es mayor, menor o son iguales
+     #20. A partir del ejercicio anterior, forzar que el usuario solo pueda introducir por teclados números entre 0 y 10
+     #21. Programa que calcula una ecuación de segundo grado. Controla que el valor de la raíz cuadrada no de un valor negativo
+     #22Programa que al introducir una nota por teclado te diga si has aprobado o suspendido. Si la nota es menos de un 5 es suspenso y si la nota         es 5 o mayor estás aprobado.
+      nota= float(input("Introduce la nota: "))
+      # 23Modifica el programa anterior para establecer si la nota es un excelente (8.5 a 10), un notable (>=6.5 -<8.5), satisfactorio (<6.5 -5) insuficiente (<5). Controla que la nota introducida esté entre 0 y 10. Utilizar elif sin operadores lógicos
+      #24.Corrige los errores del siguiente código y comprueba que se ejecuta correctamente
+      #25. Repite el programa número 23 pero en esta ocasión utilizando operadores lógicos.
+      #26. Realiza un programa que, al introducir una letra por teclado, aparezca por pantalla si 
+#está o no en mayúscula. Utiliza dos IF’s que establezcan True o False a la condición.
+        #27. Mejora el programa anterior para controlar que el valor introducido es una letra y en 
+#caso de introducir un número, aparezca un aviso por pantalla
+#28.Mejora el programa anterior para controlar también la introducción de símbolos. Utiliza elif.
+#29.Busca Internet qué función permite obtener la longitud de un String, realiza un programa 
+#que al introducir una frase devuelva la longitud
+#30.Realiza un programa que controle si la longitud de una frase introducida por teclado es
+#igual, menor o mayor de 11 caracteres. Utiliza elif
+31. Asigna a una variable de texto la siguiente frase: A quién madruga Dios ayuda.
+    Comprueba si existen las siguientes palabras mostrando por pantalla la posición de su
+    índice.
+    32. Cómo solucionarías con ayuda de métodos String el problema del ejercicio anterior para
+    no distinguir entre mayúsculas y minúsculas
+    33. Programa un código que permita contar el número de vocales de la siguiente frase: No
+    hay mal que dure cien años
+    34. Corrige los 4 errores o añade el código que necesites para que el siguiente programa se
+    ejecute correctamente
+    
+Actividades con bucles con for
+
+   35. Programa que al introducir un número por teclado permita mostrar ese número de veces tu
+    nombre
+    36. Programa que sume los n primeros números naturales. n Lo introduce el usuario.
+    37. Programa que pregunte cuantas notas quiero introducir y para cada nota diga si estoy aprobado
+    o suspendido.
+    38. A partir del programa anterior, establece los rangos para que el usuario no pueda introducir
+    notas inferiores a 0 y superiores a 10
+    39. Programa que pida n números y que, tras introducir el último número, debe aparecer por
+    pantalla el número total de positivos, negativos y número de 0.
+    40. Crea un programa que cuente todos los números pares hasta el número 50
+    41. Imprime el siguiente patrón utilizando for:
+    42. Imprima el siguiente patrón con el ciclo for
+    43. Realiza un programa que recorra con un for una palabra introducida por teclado y se imprima
+    por pantalla cada letra
+    44. Realiza un programa que recorra todos los números comprendidos de 0 a 100 realizando saltos
+    de 3 en 3. El resultado debe aparecer por pantalla en una línea con los números separados por ‘,’
+    45. Realiza un programa que permita introducir una palabra por teclado y puedas recorrer el string
+    distinguiendo vocales y las consonantes:
+    46. A partir del programa anterior, soluciona el error que se produce en el test anterior con la
+    palabra Abrigo utilizando únicamente una instrucción.
+    47. Realiza un programa donde el usuario introduzca por teclado 2 intervalos, por pantalla se debe
+    mostrar el rango de números teniendo en cuenta que se a<b la secuencia será incremental y si a>b
+    la secuencia en descenso. Respeta el formato de salida
+    48. Realiza un programa que introduzcas por teclado una palabra ‘secreta’, consigue la longitud de
+    esa palabra para que sea ese el criterio que establezca el rango del bucle de manera que el usuario
+    tenga x oportunidades para ver si letra introducida está en esa palabra.
+     

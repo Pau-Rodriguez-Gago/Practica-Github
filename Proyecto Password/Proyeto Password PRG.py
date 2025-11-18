@@ -23,9 +23,13 @@ if len(password)<6 or len(password)>8:
 #de manera que si és correcte el programa segueix però si no ho és, ho mostra per pantalla
 #i continua amb la resta.
 else:
-    if not(int(password[0])>=1) or not(int(password[0])<=5):
+    if not (password[0].isnumeric()):
         algun_error="si"
-        print("Error en el caràter 1")
+        print("Error en el caràcter 1")
+    else:
+        if not(int(password[0])>=1) or not(int(password[0])<=5):
+            algun_error="si"
+            print("Error en el caràter 1")
     if not(password[1].islower()):
         algun_error="si"
         print("Error en el caràcter 2")

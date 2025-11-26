@@ -6,7 +6,7 @@ for x in range(0,7):
     numero=int(input("Introduce uno de los 7 números: "))
     if numero<0:
         suma_numeros_negativo=suma_numeros_negativo+numero
-    elif numero>0:
+    if numero>0:
         suma_numeros_positivos=suma_numeros_positivos+numero
         if numero>100:
             suma_numeros_mayor_a_cien=suma_numeros_mayor_a_cien+1

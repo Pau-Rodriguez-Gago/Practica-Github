@@ -56,7 +56,7 @@ while repetir=="s":
         total_pagar=float(total_pagar+1.5)
     if pedidinho_bedidinho==3:
         total_pagar=float(total_pagar+1)
-    reptir=input("¿Quieres pedir otro set de menú? s/n: ")
+    repetir=input("¿Quieres pedir otro set de menú? s/n: ")
 print("Número de pedidos:", núm_pedidos)
 print("Total a pagar:", total_pagar)
 total_iva=total_pagar*10

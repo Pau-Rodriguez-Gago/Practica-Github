@@ -23,7 +23,8 @@ while not(numero_introducido==-99):
             total_de_números_negattivos=total_de_números_negativos+1
         if numero_introducido==0:
             total_de_ceros=total_de_ceros+1
-        total_de_la_suma=total_de_la_suma+numero_introducido
+        if not(numero_introducido==-99):
+            total_de_la_suma=total_de_la_suma+numero_introducido
     else:
         total_de_impares=total_de_impares+1
         if numero_introducido>0:
@@ -32,5 +33,10 @@ while not(numero_introducido==-99):
             total_de_números_negattivos=total_de_números_negativos+1
         if numero_introducido==0:
             total_de_ceros=total_de_ceros+1
-        total_de_la_suma=total_de_la_suma+numero_introducido
-print("El número de pares es de:")
+        if not(numero_introducido==-99):
+            total_de_la_suma=total_de_la_suma+numero_introducido
+print("El número de pares es de:",total_de_pares)
+print("El número de impares es de:",total_de_impares)
+print("El número de positivos es de:",total_de_números_positivos)
+print("El número de negativos es de:",total_de_números_negativos)
+print("El total es de:",total_de_la_suma)

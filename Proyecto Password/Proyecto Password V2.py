@@ -31,6 +31,8 @@ while otro_password=="s" and not (passwords_restantes==0):
     for x in password:
         if x.isnumeric():
             numero_seguido=numero_seguido+1
+            letra_seguida=0
+            simbolo_seguido=0
             if int(x)>=0 and int(x)<=3:
                 contador_cero_tres=contador_cero_tres+1
             if int(x)>=4 and int(x)<=6:
@@ -38,20 +40,26 @@ while otro_password=="s" and not (passwords_restantes==0):
             if int(x)>=7 and int(x)<=9:
                 contador_siete_nueve=contador_siete_nueve+1
         if x.isalpha():
-            letra_seguida=letra_seguida+1    
+            letra_seguida=letra_seguida+1
+            numero_seguido=0
+            simbolo_seguido=0 
             if str(x).isupper():
                 contador_letras_mayus=contador_letras_mayus+1
             if str(x).islower():
                 contador_letras_minus=contador_letras_minus+1
         if not(x.isalnum()) and not(x==" " or x=="." or x==","):
-            contador_simbolos=contador_simbolos+1
             simbolo_seguido=simbolo_seguido+1
+            letra_seguida=0
+            numero_seguido=0
         if numero_seguido==2:
             veces_que_hay_numero_seguido=veces_que_hay_numero_seguido+1
             numero_seguido=0
         if letra_seguida==2:
             veces_que_hay_letra_seguida=veces_que_hay_letra_seguida+1
             letra_seguida=0
+        if simbolo_seguido==2:
+            veces_que_hay_simbolo_seguido=veces_que_hay_simbolo_seguido+1
+            simbolo_seguido=0
     if not(contador_cero_tres>=1):
         print("La contraseña necesita al menos un número entre el 0 y el 3.")
         password_perfecto="no"
@@ -96,4 +104,3 @@ if passwords_restantes==0 and otro_password=="s":
     print("lo siento, pero aunque quieras seguir, te has quedado sin intentos.")
 print("Has introducido",passwords_correctos,"contraseñas correctas.")
 print("Y has introducido",passwords_incorrectos,"contraseñas incorrectas.")
-#Pau del futuro, haz que se reinicien las variables de letras seguidas y eso, si pones otra cosa.

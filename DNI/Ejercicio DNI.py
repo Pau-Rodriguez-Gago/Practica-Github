@@ -55,17 +55,27 @@ print("2. Listar DNI incorrectos ordenados de menor a mayor.")
 print("3. Número total de errores")
 print("4. Número total de DNIs correctos.")
 print("5. Porcentaje de DNI correctos, incorrectos, errores de longitud, errores de número, no existentes.")
-menu=input("Introduzca el núemro de la opción que desee ver: ")
-if menu==1:
-    print(danis_correctos_ordenados)
-elif menu==2:
-    print(danis_incorrectos_ordenados)
-elif menu==3:
-    print("Su número total de DNI incorrectos es de:",dni_incorrectos)
-elif menu==4:
-    print("Su número total de DNI correctos es de:",dni_correctos)
-elif menu==5:
-    
-else:
-    print("No ha introducido un valor permitido.")
+print("6. Salir s/n.")
+while not (menu==6):
+    menu=int(input("Introduzca el número de la opción que desee ver: "))
+    if menu==1:
+        print(danis_correctos_ordenados)
+    elif menu==2:
+        print(danis_incorrectos_ordenados)
+    elif menu==3:
+        print("Su número total de errores es de:",errores_long+errores_num+errores_resto)
+    elif menu==4:
+        print("Su número total de DNI correctos es de:",dni_correctos)
+    elif menu==5:
+        print("Porcentaje de DNIs correctos: ",round((dni_correctos/dni_totales)*100,1),"%")
+        print("Porcentaje de DNIs incorrectos: ",round((dni_incorrectos/dni_totales)*100,1),"%")
+        print("Porcentaje de errores de longitud: ",round((errores_long/dni_totales)*100,1),"%")
+        print("Porcentaje de errores de número: ",round((errores_num/dni_totales)*100,1),"%")
+        print("Porcentaje de errores de resto/no existentes: ",round((errores_resto/dni_totales)*100,1),"%")
+    else:
+        if not (menu==6):
+            print("No ha introducido un valor permitido. Por favor, introduce uno de nuevo.")
 print("Programa finalizado")
+#Me ahorrro tener que poner if menu==6: gracias a que nunca va a poder escapar del while si no ha puesto un 6, por lo tanto,
+#Eso significa que ya quiere que se acabe el programa.
+#He decidido redondear los porcentajes a una cifra decimal para que no salgan todos esos decimales.

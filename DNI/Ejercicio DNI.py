@@ -1,78 +1,71 @@
 dni=0
 resto=0
-letra="A"
+letra="PEPINILLO"
 continuar="s"
 dni_final=[]
 dni_str=""
+lista_letras="TRWAGMYFPDXBNJZSQVHLCKE"
 dni_bienmal=52
 errores_long=0
 errores_num=0
 errores_resto=0
-while continuar=="s":
+dni_totales=0
+dni_correctos=0
+dni_incorrectos=0
+danis_correctos_ordenados=[]
+danis_incorrectos_ordenados=[]
+menu=0
+while continuar=="s" or continuar=="S":
     dni_final=[]
     dni=(input("Introduce los números del DNI: "))
     dni_str=str(dni)
+    dni_totales=dni_totales+1
     if not len(dni_str)==8:
         print("El valor introducido no cumple con la longitud correcta.")
         dni_bienmal=0
         errores_long=errores_long+1
+        dni_incorrectos=dni_incorrectos+1
+        danis_incorrectos_ordenados.append(dni)
     elif not dni.isdigit():
          dni_bienmal=1
          errores_num=errores_num+1
+         dni_incorrectos=dni_incorrectos+1
          print("El valor introducido debe ser numérico.")
+         danis_incorrectos_ordenados.append(dni)
     else:
         resto=int(dni)%23
-        if resto==0:
-            letra="T"
-        elif resto==1:
-            letra="R"
-        elif resto==2:
-            letra="W"
-        elif resto==3:
-            letra="A"
-        elif resto==4:
-            letra="G"
-        elif resto==5:
-            letra="M"
-        elif resto==6:
-            letra="Y"
-        elif resto==7:
-            letra="F"
-        elif resto==8:
-            letra="P"
-        elif resto==9:
-            letra="D"
-        elif resto==10:
-            letra="X"
-        elif resto==11:
-            letra="B"
-        elif resto==12:
-            letra="N"
-        elif resto==13:
-            letra="J"
-        elif resto==14:
-            letra="Z"
-        elif resto==15:
-            letra="S"
-        elif resto==16:
-            letra="Q"
-        elif resto==17:
-            letra="V"
-        elif resto==18:
-            letra="H"
-        elif resto==19:
-            letra="L"
-        elif resto==20:
-            letra="C"
-        elif resto==21:
-            letra="K"
-        elif resto==22:
-            letra="E"
-        else:
+        letra=lista_letras[resto]
+        if not (resto>-1 or resto<23): 
             dni_bienmal=3
             errores_resto=errores_resto+1
-        dni_final.append(dni_str)
-        dni_final.append(letra)
-        "-".join(dni_final)
-        print(dni_final)
+            dni_incorrectos=dni_incorrectos+1
+            danis_incorrectos_ordenados.append(dni)
+        else:
+            dni_final.append(dni_str)
+            dni_final.append(letra)
+            dni_correctos=dni_correctos+1
+            danis_correctos_ordenados.append(dni_final)
+            print(dni,"-",letra)
     continuar=input("Quieres introducir más DNI? s/n : ")
+danis_correctos_ordenados.sort()
+danis_incorrectos_ordenados.sort()
+print("A continuación puede seleccionar como quiere ver los resultados recogidos por el programa: ")
+print("1. Listar DNI correctos ordenados de menor a mayor.")
+print("2. Listar DNI incorrectos ordenados de menor a mayor.")
+print("3. Número total de errores")
+print("4. Número total de DNIs correctos.")
+print("5. Porcentaje de DNI correctos, incorrectos, errores de longitud, errores de número, no existentes.")
+menu=input("Introduzca el núemro de la opción que desee ver: ")
+if menu==1:
+    print(danis_correctos_ordenados)
+elif menu==2:
+    print(danis_incorrectos_ordenados)
+elif menu==3:
+    print("Su número total de DNI incorrectos es de:",dni_incorrectos)
+elif menu==4:
+    print("Su número total de DNI correctos es de:",dni_correctos)
+elif menu==5:
+    
+else:
+    print("No ha introducido un valor permitido.")
+print("Programa finalizado")

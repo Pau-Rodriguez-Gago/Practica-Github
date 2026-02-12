@@ -1,7 +1,7 @@
 temp=int(input())
 if temp<10:
     print("it's cold")
-    if temp<0:
+    if temp<=0:
         print("water would freeze")
 if temp>30:
     print("it's hot")

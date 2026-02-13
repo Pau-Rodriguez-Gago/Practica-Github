@@ -6,5 +6,5 @@ lista=[]
 for x in range(numero_numeros):
     numeros=(int(input("Introduce un número: ")))
     lista.append(numeros)
-    lista.sort
+    lista.sort()
 print(lista)

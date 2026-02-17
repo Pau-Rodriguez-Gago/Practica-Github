@@ -11,6 +11,8 @@ if segundos_fin==60:
     if minutos_fin==60:
         minutos_fin=0 
         horas_fin=horas_fin+1
+        if horas_fin==24:
+            horas_fin=0
 if horas_fin<10 and minutos_fin<10 and segundos_fin<10:
     print(str(0)+str(horas_fin)+":"+str(0)+str(minutos_fin)+":"+str(0)+str(segundos_fin))
 elif horas_fin<10 and minutos_fin<10 and not (segundos_fin<10): 

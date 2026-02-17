@@ -46,3 +46,5 @@ print("Coins of 10 cents:", ten_cents)
 print("Coins of 5 cents:", five_cents)
 print("Coins of 2 cents:", two_cents)
 print("Coins of 1 cent:", one_cent)
+#Este ejercicio puede parecer una burrada pero es lo que mejor se me ocurrió, 
+#dividia el dinero entre lo más grande y luego el resto entre lo siguiente más grande y así sucesivamente.

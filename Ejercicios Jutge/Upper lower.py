@@ -5,3 +5,4 @@ if letter.isupper():
 else:
     letter=letter.upper()
     print(letter)
+#Con el .lower y el.upper es sencillo.

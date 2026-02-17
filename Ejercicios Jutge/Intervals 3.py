@@ -1,17 +1,19 @@
-a1, b1, a2, b2 = map(int, input().split())
-if a1 == a2 and b1 == b2:
+num1_int1, num2_int1, num1_int2, num2_int2 = map(int, input().split())
+if num1_int1 == num1_int2 and num2_int1 == num2_int2:
     relacion = '='
-elif a1 >= a2 and b1 <= b2:
+elif num1_int1 >= num1_int2 and num2_int1 <= num2_int2:
     relacion = '1'
-elif a2 >= a1 and b2 <= b1:
+elif num1_int2 >= num1_int1 and num2_int2 <= num2_int1:
     relacion = '2'
 else:
     relacion = '?'
-intersection_start = max(a1, a2)
-intersection_end = min(b1, b2)
-if intersection_start > intersection_end:
-    intersection = "[]"
+inicio_inter = max(num1_int1, num1_int2)
+fin_inter = min(num2_int1, num2_int2)
+if inicio_inter > fin_inter:
+    interseccion = "[]"
 else:
-    intersection = f"[{intersection_start},{intersection_end}]"
+    interseccion = f"[{inicio_inter},{fin_inter}]"
 
-print(relacion, ",", intersection)
+print(relacion, ",", interseccion)
+#Aquí también me costó y lo hice despues de buscar así que también apliqué el map, y el print tuve que usar f [] para 
+#que no salieran más espacios de los deseados.

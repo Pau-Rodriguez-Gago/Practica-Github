@@ -9,3 +9,4 @@ if temp>30:
         print("water would boil")
 if temp>=10 and temp<=30:
     print("it's ok")
+#Fácil, ver si es como pide o no

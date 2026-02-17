@@ -1,9 +1,10 @@
-words=input("").split()
-word1=words[0]
-word2=words[1]
-if word1<word2:
-    print(word1,"<",word2)
-elif word1>word2:
-    print(word1,">",word2)
+palabras=input("").split()
+palabra1=palabras[0]
+palabra2=palabras[1]
+if palabra1<palabra2:
+    print(palabra1,"<",palabra2)
+elif palabra1>palabra2:
+    print(palabra1,">",palabra2)
 else:
-    print(word1,"=",word2)
+    print(palabra1,"=",palabra2)
+#Este ejercicio no tiene misterio, básicamente los operadores de siempore, también se pueden aplicar a las palabras.

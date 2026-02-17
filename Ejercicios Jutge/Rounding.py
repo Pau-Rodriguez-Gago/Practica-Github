@@ -3,5 +3,7 @@ x=float(input(""))
 import math
 if x-math.floor(x)<math.ceil(x)-x:
     print(math.floor(x),math.ceil(x),math.floor(x))
+elif x-math.floor(x)>math.ceil(x)-x:
+    print(math.floor(x),math.ceil(x),math.ceil(x))
 else:
     print(math.floor(x),math.ceil(x),math.ceil(x))

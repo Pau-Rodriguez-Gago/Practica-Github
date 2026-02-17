@@ -1,0 +1,1 @@
+#Hola Sr. De la Torre, los ejercicios que no están son porque usé el mismo archivo pues eran prácticamente iguales solo con leves mejoras.

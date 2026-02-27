@@ -1,6 +1,16 @@
-print("Bienvenido a la nueva edición de AHORCADO")
-print("El único juego relacionado con el suicido que pueden jugar menores.")
-print("En esta nueva edición de ahorcado, los errores se irán mostrando en forma de texto, y, cuando se complete la palabra ahorcado, te habrás quedado sin intentos.")
+import time
+import sys
+def escribir_lento(texto, retraso=0.05):
+    for x in texto:
+        sys.stdout.write(x)
+        sys.stdout.flush()          
+        time.sleep(retraso)
+escribir_lento("Bienvenido a la nueva edición de AHORCADO", retraso=0.0275)
+print()
+escribir_lento("El único juego relacionado con el suicido que pueden jugar menores", retraso=0.0275)
+print()
+escribir_lento("En esta nueva edición de ahorcado, los errores se irán mostrando en forma de texto, y, cuando se complete la palabra ahorcado, te habrás quedado sin intentos.", retraso=0.0275)
+print()
 contador_partidas=0
 otra_partida="S"
 while otra_partida=="S" or otra_partida=="s" or otra_partida=="Si" or otra_partida=="SI" or otra_partida=="si" or otra_partida=="Sí" or otra_partida=="SÍ" or otra_partida=="sí":

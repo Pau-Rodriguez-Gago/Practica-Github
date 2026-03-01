@@ -9,3 +9,4 @@ else:
     lista_num=numeros.split()
     suma=int(lista_num[0])+int(lista_num[1])+int(lista_num[2])
     print(suma)
+    #Bueno, aquí es solo una suma, pero si la longitud es mayor tuve que incluir un imput vació y otro con el tercer valor.

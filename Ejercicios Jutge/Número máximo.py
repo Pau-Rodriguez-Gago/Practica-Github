@@ -6,3 +6,4 @@ if int(numeros[0])<int(numeros[1]):
     print(numeros[1])
 if int(numeros[0])==int(numeros[1]):
     print(numeros[0])
+#Muy sencillo, solo comprovar cual es más grande y ya.

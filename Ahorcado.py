@@ -16,13 +16,17 @@ otra_partida="S"
 while otra_partida=="S" or otra_partida=="s" or otra_partida=="Si" or otra_partida=="SI" or otra_partida=="si" or otra_partida=="Sí" or otra_partida=="SÍ" or otra_partida=="sí":
     contador_partidas+=1
     if contador_partidas>1:
-        print("Vaya vaya, así que con ganas de más eh... Por lo que parece, si mis datos no me engañan, esta es tu partida número",contador_partidas,".")
+        escribir_lento("Vaya vaya, así que con ganas de más eh... Por lo que parece, si mis datos no me engañan, esta es tu partida número "+str(contador_partidas)+".", retraso=0.0275)
+        print()
         if contador_partidas<5:
-            print("No lleva ni 5 partidas caballero, le animamos a seguir disfrutando del juego :D.")
+            escribir_lento("No lleva ni 5 partidas caballero, le animamos a seguir disfrutando del juego :D.", retraso=0.0275)
+            print()
         if contador_partidas>=5 and contador_partidas<10:
-            print("Bueno, ya es la partida número",contador_partidas,". Veo, que eres un apasionado del ahorcado! ¡Sigue así :D!")
+            escribir_lento("Bueno, ya es la partida número "+str(contador_partidas)+". Veo, que eres un apasionado del ahorcado! ¡Sigue así :D!", retraso=0.0275)
+            print()
         if contador_errores>=10:
-            print("Emm... No es por ser aguafiestas pero... Deberías ir saliendo, dar tiempo a tus amigos, familía, respirar aire, salir de casa... Bueno, por mí sigue jugando tanto cuanto quieras.")
+            escribir_lento("Emm... No es por ser aguafiestas pero... Deberías ir saliendo, dar tiempo a tus amigos, familía, respirar aire, salir de casa... Bueno, por mí sigue jugando tanto cuanto quieras..", retraso=0.0275)
+            print()
     lista_palabrasecreta=["gigante","arqueras","mago","cementerio","ballesta","mortero","golem","mosquetera","tronco","esqueleto"]
     lista_partida=[]
     lista_ahorcado=[]
@@ -46,18 +50,22 @@ while otra_partida=="S" or otra_partida=="s" or otra_partida=="Si" or otra_parti
             for i in range(len(palabra_escogida)):
                 if letra_escogida==palabra_escogida[i]:
                     lista_partida[i]=letra_escogida
-            print("La letra está en la palabra")
+            escribir_lento("La letra está en la palabra", retraso=0.0275)
+            print()
             print(*lista_partida)
             if "_" not in lista_partida:
-                print("¡Enhorabuena, has ganado!")
+                escribir_lento("¡Enhorabuena, has ganado!", retraso=0.0275)
+                print()
                 otra_partida=input("¿Quieres jugar otra partida? (S/N): ")
             else:
                 letra_escogida=input("Sigue así, introduce tu siguiente letra: ")
         else:
-            print("La letra no está en la palabra")
+            escribir_lento("La letra no está en la palabra", retraso=0.0275)
+            print()
             contador_errores+=1
             if contador_errores<=8:
-                print("Uy uy uy, un error más, observa cuanto te queda hasta que se llene la palabra ahorcado... El fin se acerca...")
+                escribir_lento("Uy uy uy, un error más, observa cuanto te queda hasta que se llene la palabra ahorcado... El fin se acerca...", retraso=0.0275)
+                print()
                 if contador_errores==1:
                     print(lista_ahorcado[0])
                     print(*lista_partida)
@@ -88,13 +96,18 @@ while otra_partida=="S" or otra_partida=="s" or otra_partida=="Si" or otra_parti
                     letra_escogida=input("No te rindas tio, esa letra no era correcta, continua con tu siguiente letra: ")
                 elif contador_errores==8:
                     print(lista_ahorcado[0],lista_ahorcado[1],lista_ahorcado[2],lista_ahorcado[3],lista_ahorcado[4],lista_ahorcado[5],lista_ahorcado[6],lista_ahorcado[7])
-                    print("¡Has perdido! La palabra era",palabra_escogida,".")
+                    escribir_lento("¡Has perdido! La palabra era: "+palabra_escogida, retraso=0.0275)
+                    print()
                     otra_partida=input("¿Quieres jugar otra partida? (S/N): ")
-    if contador_errores==8:
-        print("Que lástima estimado compañero, hasta la próxima... No olvide... EL 99% DE LOS JUGADORES DE AHORCADO SE RINDEN JUSTO ANTES DE SU VICTORIA...")
-        print("¿Seguro que no quieres seguiiiiiir?? Anda, anímate...")
+    if contador_errores==8 and not otra_partida in ["S","s","Sí","Si","sí","si","SI","SÍ"]:
+        escribir_lento("Que lástima estimado compañero, hasta la próxima... No olvide... EL 99% DE LOS JUGADORES DE AHORCADO SE RINDEN JUSTO ANTES DE SU VICTORIA...", retraso=0.0275)
+        print()
+        escribir_lento("¿Seguro que no quieres seguiiiiiir?? Anda, anímate...", retraso=0.0275)
+        print()
         otra_partida=input("Juega... Es tu última oportunidad... (S/N): ")
-    if otra_partida not in ["S","s","Si","SI","si","Sí","SÍ","sí"]:
-        print("Pues nada, tu lo has querido, nos vemos en la próxima :D.")
+        if otra_partida not in ["S","s","Si","SI","si","Sí","SÍ","sí"]:
+            escribir_lento("Pues nada, tu lo has querido, nos vemos en la próxima :D.", retraso=0.0275)
+            print()
 if contador_errores<8:
+    escribir_lento("Bueno, hasta aquí llegó tu partida, ganador, nos vemos en la próxima.", retraso=0.0275)
     print("Bueno, hasta aquí llegó tu partida, ganador, nos vemos en la próxima.")

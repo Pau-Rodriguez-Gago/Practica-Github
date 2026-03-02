@@ -1,8 +1,4 @@
-import time
-import sys
-def escribir_lento(texto, retraso=0.05):
-    for x in texto:
-        sys.stdout.write(x)
-        sys.stdout.flush()          
-        time.sleep(retraso)
-escribir_lento("Bienvenido a la nueva edición de AHORCADO", retraso=0.1)
+partidas=1
+text_file = open('Text.txt','w+')
+text_file.write('partidas')
+print(text_file.read())

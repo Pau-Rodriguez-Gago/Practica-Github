@@ -1,5 +1,13 @@
 import time
 import sys
+import winsound
+winsound.Beep(400,500)
+winsound.Beep(500,500)
+winsound.Beep(600,500)
+winsound.Beep(700,500)
+winsound.Beep(800,500)
+winsound.Beep(900,500)
+winsound.Beep(1000,500)
 def escribir_lento(texto, retraso=0.05):
     for x in texto:
         sys.stdout.write(x)
@@ -193,10 +201,10 @@ while otra_partida=="S" or otra_partida=="s" or otra_partida=="Si" or otra_parti
                     print()
                     escribir_lento("Y "+str(len(lista_letras_incorrectas))+" fueron incorrectas.", retraso=0.0275)
                     print()
-                    escribir_lento("Y repetiste alguna letra en un total de "+str(len(lista_letras_repetidas))+" ocasiones.", retraso=0.0275)
+                    escribir_lento("Repetiste alguna letra en un total de "+str(len(lista_letras_repetidas))+" ocasiones.", retraso=0.0275)
                     print()
                     if cronómetro_s_n in ["S","s","Sí","Si","sí","si","SI","SÍ"]:
-                        escribir_lento("Y, ha durado "+str(round(time.time()-cronómetro,2))+" segundos", retraso=0.0275)
+                        escribir_lento("Te ha llevado "+str(round(time.time()-cronómetro,2))+" segundos.", retraso=0.0275)
                         print()
                     otra_partida=input(input_lento("¿Quieres jugar otra partida? (S/N): ", retraso=0.0275))
     if contador_errores==8 and not otra_partida in ["S","s","Sí","Si","sí","si","SI","SÍ"]:

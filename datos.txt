@@ -1,0 +1,4 @@
+Nombre: Guardado ahorcado prueba
+Edad: 30
+Altura: 1.65
+Ciudad: Barcelona

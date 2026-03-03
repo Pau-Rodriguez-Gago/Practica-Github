@@ -1,21 +1,24 @@
 import time
 import sys
 import winsound
+import os
 musica="s"
-winsound.Beep(787,125)
-winsound.Beep(787,125)
-winsound.Beep(1375,125)
-winsound.Beep(1080,125)
-winsound.Beep(984,125)
-winsound.Beep(898,125)
-winsound.Beep(787,125)
-winsound.Beep(898,125)
-winsound.Beep(787,125)
-winsound.Beep(984,125)
+hay_guardado="Guardado ahorcado.txt"
+winsound.Beep(787,300)
+winsound.Beep(787,300)
+winsound.Beep(1375,500)
+winsound.Beep(1080,300)
+winsound.Beep(984,300)
+winsound.Beep(898,350)
+winsound.Beep(787,300)
+winsound.Beep(730,300)
+winsound.Beep(787,300)
+winsound.Beep(984,300)
 def escribir_lento(texto, retraso=0.05):
     for x in texto:
         sys.stdout.write(x)
-        sys.stdout.flush()          
+        winsound.Beep(500,20)
+        sys.stdout.flush()  
         time.sleep(retraso)
 def input_lento(texto, retraso=0.05):
     import time
@@ -43,6 +46,30 @@ contador_partidas=0
 otra_partida="S"
 while otra_partida=="S" or otra_partida=="s" or otra_partida=="Si" or otra_partida=="SI" or otra_partida=="si" or otra_partida=="Sí" or otra_partida=="SÍ" or otra_partida=="sí":
     contador_partidas+=1
+    ver_guardado_sn=input(input_lento("Antes de continuar con el juego, ¿le gustaría visualizar los datos de la partida que guardó anteriormente? S/N: "))
+    if ver_guardado_sn in ["S","s","Sí","Si","sí","si","SI","SÍ"]:
+         if os.path.exists(hay_guardado):
+            escribir_lento("Bien, a continuación le muestro los datos de su tan preciada última partida guardada.")
+            def leer_datos_guardaos():
+                   archivo_lectura=open('Guardado ahorcado.txt','r')
+                   filas_texto=archivo_lectura.readlines()
+                   for x in filas_texto:
+                        if x==1:
+                            escribir_lento("La partida que guardaste fue jugada durante el "+str(x.strip())+".")
+                        if x==2:
+                            escribir_lento("Acabaste en esta hora:  "+str(x.strip())+".")
+                        if x==3:
+                             escribir_lento("La palabra escogida en la partida fue: "+str(x.strip()))
+                        if x==4:
+                             escribir_lento("Introduciste un total de "+str(x.strip())+" letras diferentes que fueron correctas.")
+                        if x==5:
+                             escribir_lento("Y, introduciste un total de "+str(x.strip())+" letras diferentes que fueron incorrectas.")
+            leer_datos_guardaos()
+         else:
+            escribir_lento("Oye oye, a mi no me intentes engañar, todavía no has guardado ninguna partida.",retraso=0.0275)
+            print()
+            escribir_lento("Si tantas ganas tienes de ver algo guardado, no pierdas tiempo y empieza ya a jugar! :D",retraso=0.0275)
+            print()
     if contador_partidas>1 and cronómetro_s_n in ["S","s","Sí","Si","sí","si","SI","SÍ"]:
          cronómetro=time.time()
     lista_letras_introducidas=[]
@@ -113,12 +140,23 @@ while otra_partida=="S" or otra_partida=="s" or otra_partida=="Si" or otra_parti
                 escribir_lento("Y repetiste alguna letra en un total de "+str(len(lista_letras_repetidas))+" ocasiones.", retraso=0.0275)
                 print()
                 if cronómetro_s_n in ["S","s","Sí","Si","sí","si","SI","SÍ"]:
-                    cronómetro_final=(time.time()-cronómetro,2)
-                    min=round(int(cronómetro_final)//6,2)
+                    cronómetro_final=(round(time.time()-cronómetro,2))
+                    min=round(int(cronómetro_final)//60,2)
                     sec=cronómetro_final%60
-                    sec=sec//60
-                    escribir_lento("Y, ha durado "+str(min)+" minutos y "+str(sec)+" segundos.", retraso=0.0275)
+                    escribir_lento("Y, ha durado "+str(min)+" minuto/s y "+str(sec)+" segundos.", retraso=0.0275)
                     print()
+                guardar_datos_sn=input(input_lento("Que gran partida! ¿Te gustaría guardar los datos de esta última partida para poder verlos más tarde? S/N: ",retraso=0.0275))
+                print()
+                if guardar_datos_sn in ["S","s","Sí","Si","sí","si","SI","SÍ"]:
+                    def guardar():
+                        archivo=open('Guardado ahorcado.txt','w')
+                        archivo.write(str(time.strftime("%Y-%m-%d")+'\n'))
+                        archivo.write(str(time.strftime('%H-%M-%S'))+'\n')
+                        archivo.write(str(palabra_escogida)+'\n')
+                        archivo.write(str(len(lista_letras_correctas))+'\n')
+                        archivo.write(str(len(lista_letras_incorrectas))+'\n')
+                        archivo.close()
+                    guardar()
                 otra_partida=input(input_lento("¿Quieres jugar otra partida? (S/N): ", retraso=0.0275))
             else:
                 letra_escogida=input(input_lento("Sigue así, introduce tu siguiente letra: ", retraso=0.0275))
@@ -212,8 +250,22 @@ while otra_partida=="S" or otra_partida=="s" or otra_partida=="Si" or otra_parti
                     escribir_lento("Repetiste alguna letra en un total de "+str(len(lista_letras_repetidas))+" ocasiones.", retraso=0.0275)
                     print()
                     if cronómetro_s_n in ["S","s","Sí","Si","sí","si","SI","SÍ"]:
-                        escribir_lento("Te ha llevado "+str(round(time.time()-cronómetro,2))+" segundos.", retraso=0.0275)
+                        cronómetro_final=(round(time.time()-cronómetro,2))
+                        min=round(int(cronómetro_final)//60,2)
+                        sec=cronómetro_final%60
+                        escribir_lento("Y, ha durado "+str(min)+" minuto/s y "+str(sec)+" segundos.", retraso=0.0275)
                         print()
+                        guardar_datos_sn=input(input_lento("Que gran partida! ¿Te gustaría guardar los datos de esta última partida para poder verlos más tarde? S/N: ",retraso=0.0275))
+                        print()
+                        def guardar():
+                            archivo=open('Guardado ahorcado.txt','w')
+                            archivo.write(str(time.strftime("%Y-%m-%d")+'\n'))
+                            archivo.write(str(time.strftime('%H-%M-%S'))+'\n')
+                            archivo.write(str(palabra_escogida)+'\n')
+                            archivo.write(str(len(lista_letras_correctas))+'\n')
+                            archivo.write(str(len(lista_letras_incorrectas))+'\n')
+                            archivo.close()
+                        guardar()
                     otra_partida=input(input_lento("¿Quieres jugar otra partida? (S/N): ", retraso=0.0275))
     if contador_errores==8 and not otra_partida in ["S","s","Sí","Si","sí","si","SI","SÍ"]:
         escribir_lento("Que lástima estimado compañero, hasta la próxima... No olvide... EL 99% DE LOS JUGADORES DE AHORCADO SE RINDEN JUSTO ANTES DE SU VICTORIA...", retraso=0.0275)

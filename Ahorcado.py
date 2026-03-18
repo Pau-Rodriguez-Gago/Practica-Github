@@ -50,13 +50,13 @@ while otra_partida=="S" or otra_partida=="s" or otra_partida=="Si" or otra_parti
     if ver_guardado_sn in ["S","s","Sí","Si","sí","si","SI","SÍ"]:
          if os.path.exists(hay_guardado):
             escribir_lento("Bien, a continuación le muestro los datos de su tan preciada última partida guardada.")
-            def leer_datos_guardaos():
-                   archivo_lectura=open('Guardado ahorcado.txt','r')
-                   lista_datos_guardados=[archivo_lectura.read()]
-                   datos_sep=""
-                   datos_sep.split(str(lista_datos_guardados))
-                   print(datos_sep)
-            leer_datos_guardaos()
+            with open("Guardado ahorcado.txt", "r") as archivo:
+                lineas = archivo.readlines()
+            print("La fecha de la partida que guardaste es:", lineas[0].strip())
+            print("La hora los minutos y los segundos que eran cuando se guardaron los datos son los siguientes, separados por guiones:", lineas[1].strip())
+            print("La palabra que era la escogida en la partida es:", lineas[2].strip())
+            print("Hiciste un total de:", lineas[3].strip()," aciertos.")
+            print("E hiciste un total de:", lineas[4].strip()," errores.")
          else:
             escribir_lento("Oye oye, a mi no me intentes engañar, todavía no has guardado ninguna partida.",retraso=0.0275)
             print()
@@ -141,14 +141,17 @@ while otra_partida=="S" or otra_partida=="s" or otra_partida=="Si" or otra_parti
                 print()
                 if guardar_datos_sn in ["S","s","Sí","Si","sí","si","SI","SÍ"]:
                     def guardar():
-                        archivo=open('Guardado ahorcado.txt','w')
-                        archivo.write(str(time.strftime("%Y-%m-%d")+';'))
-                        archivo.write(str(time.strftime('%H-%M-%S'))+';')
-                        archivo.write(str(palabra_escogida)+';')
-                        archivo.write(str(len(lista_letras_correctas))+';')
-                        archivo.write(str(len(lista_letras_incorrectas))+';')
-                        archivo.close()
+                        with open('Guardado ahorcado.txt', 'w') as archivo:
+                            archivo.write(time.strftime("%Y-%m-%d") + "\n")
+                            archivo.write(time.strftime('%H-%M-%S') + "\n")
+                            archivo.write(palabra_escogida + "\n")
+                            archivo.write(str(len(lista_letras_correctas)) + "\n")
+                            archivo.write(str(len(lista_letras_incorrectas)) + "\n")
+
                     guardar()
+                else:
+                     escribir_lento("Entendido, no guardamos nada.")
+                     print()
                 otra_partida=input(input_lento("¿Quieres jugar otra partida? (S/N): ", retraso=0.0275))
             else:
                 letra_escogida=input(input_lento("Sigue así, introduce tu siguiente letra: ", retraso=0.0275))
@@ -249,15 +252,19 @@ while otra_partida=="S" or otra_partida=="s" or otra_partida=="Si" or otra_parti
                         print()
                         guardar_datos_sn=input(input_lento("Que gran partida! ¿Te gustaría guardar los datos de esta última partida para poder verlos más tarde? S/N: ",retraso=0.0275))
                         print()
-                        def guardar():
-                            archivo=open('Guardado ahorcado.txt','w')
-                            archivo.write(str(time.strftime("%Y-%m-%d")+';'))
-                            archivo.write(str(time.strftime('%H-%M-%S'))+';')
-                            archivo.write(str(palabra_escogida)+';')
-                            archivo.write(str(len(lista_letras_correctas))+';')
-                            archivo.write(str(len(lista_letras_incorrectas))+';')
-                            archivo.close()
-                        guardar()
+                        if guardar_datos_sn in ["S","s","Sí","Si","sí","si","SI","SÍ"]:
+                            def guardar():
+                                archivo=open('Guardado ahorcado.txt','w')
+                                archivo.write(str(time.strftime("%Y-%m-%d")+';'))
+                                archivo.write(str(time.strftime('%H-%M-%S'))+';')
+                                archivo.write(str(palabra_escogida)+';')
+                                archivo.write(str(len(lista_letras_correctas))+';')
+                                archivo.write(str(len(lista_letras_incorrectas))+';')
+                                archivo.close()
+                            guardar()
+                        else:
+                             escribir_lento("Entendido, no guardamos nada.")
+                             print()
                     otra_partida=input(input_lento("¿Quieres jugar otra partida? (S/N): ", retraso=0.0275))
     if contador_errores==8 and not otra_partida in ["S","s","Sí","Si","sí","si","SI","SÍ"]:
         escribir_lento("Que lástima estimado compañero, hasta la próxima... No olvide... EL 99% DE LOS JUGADORES DE AHORCADO SE RINDEN JUSTO ANTES DE SU VICTORIA...", retraso=0.0275)
